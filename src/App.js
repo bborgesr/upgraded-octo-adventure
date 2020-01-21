@@ -23,7 +23,6 @@ class App extends Component {
       items: Items,
       filter: [],
       search: "",
-      checked: false,
       counter: 0
     };
 
@@ -33,7 +32,6 @@ class App extends Component {
     this.findFilter = this.findFilter.bind(this);
     this.alreadyIn = this.alreadyIn.bind(this);
     this.clearAll = this.clearAll.bind(this);
-    // this.onCheckboxClick = this.onCheckboxClick.bind(this);
   }
 
   onSearch(keyword) {
@@ -187,22 +185,12 @@ class App extends Component {
   }
 
   clearAll() {
-    // TODO figure out how to uncheck all checkboxes
-    // this.setState({ items: Items });
-    // this.setState({ checked: true });
-    // this.setState({ checked: false });
-    // this.setState({ counter: this.state.counter + 1 });
     this.setState({
       items: Items,
       filter: [],
       counter: this.state.counter + 1
     });
-    // console.log(this.state.checked);
   }
-
-  // onCheckboxClick(checked) {
-  //   this.setState({ checked: !checked });
-  // }
 
   render() {
     const list = this.state.items.map(item => {
@@ -230,25 +218,21 @@ class App extends Component {
                       <Checkbox
                         label="Electronics"
                         onFilter={this.onFilter}
-                        checked={this.state.checked}
                         counter={this.state.counter}
                       />
                       <Checkbox
                         label="Books"
                         onFilter={this.onFilter}
-                        checked={this.state.checked}
                         counter={this.state.counter}
                       />
                       <Checkbox
                         label="Toys"
                         onFilter={this.onFilter}
-                        checked={this.state.checked}
                         counter={this.state.counter}
                       />
                       <Checkbox
                         label="School"
                         onFilter={this.onFilter}
-                        checked={this.state.checked}
                         counter={this.state.counter}
                       />
                     </AccordionItemPanel>
@@ -263,7 +247,6 @@ class App extends Component {
                       <Checkbox
                         label="In Stock"
                         onFilter={this.onFilter}
-                        checked={this.state.checked}
                         counter={this.state.counter}
                       />
                     </AccordionItemPanel>
@@ -278,25 +261,21 @@ class App extends Component {
                       <Checkbox
                         label="Over $500"
                         onFilter={this.onFilter}
-                        checked={this.state.checked}
                         counter={this.state.counter}
                       />
                       <Checkbox
                         label="$100-$500"
                         onFilter={this.onFilter}
-                        checked={this.state.checked}
                         counter={this.state.counter}
                       />
                       <Checkbox
                         label="$50-$100"
                         onFilter={this.onFilter}
-                        checked={this.state.checked}
                         counter={this.state.counter}
                       />
                       <Checkbox
                         label="$10-$50"
                         onFilter={this.onFilter}
-                        checked={this.state.checked}
                         counter={this.state.counter}
                       />
                       <Checkbox
@@ -316,19 +295,16 @@ class App extends Component {
                       <Checkbox
                         label="Over 4 Stars"
                         onFilter={this.onFilter}
-                        checked={this.state.checked}
                         counter={this.state.counter}
                       />
                       <Checkbox
                         label="Over 3 Stars"
                         onFilter={this.onFilter}
-                        checked={this.state.checked}
                         counter={this.state.counter}
                       />
                       <Checkbox
                         label="Over 2 Stars"
                         onFilter={this.onFilter}
-                        checked={this.state.checked}
                         counter={this.state.counter}
                       />
                     </AccordionItemPanel>

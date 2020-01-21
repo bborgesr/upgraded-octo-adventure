@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class ItemInfo extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   printRating(rating) {
     var star = '<span alt="rating ' + rating + ' out of 5">';
     for (var i = 1; i <= 5; i++) {

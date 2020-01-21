@@ -12,15 +12,26 @@ class Search extends Component {
     this.props.onSearch(value);
   }
 
+  _handleKeyUp = e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      this.onSearch();
+    }
+  };
+
   render() {
     return (
-      // <form onSubmit={this.onSearch}>
       <div className="grid-header">
         <div className="grid-header-column">
           <p className="title-text white-text font">Store Page</p>
         </div>
         <div className="grid-header-column">
-          <input className="input-bar" ref={this.input} type="text" />
+          <input
+            className="input-bar"
+            ref={this.input}
+            type="text"
+            onKeyUp={this._handleKeyUp}
+          />
         </div>
         <div className="grid-header-column">
           <button className="button background-gray" onClick={this.onSearch}>
@@ -28,7 +39,6 @@ class Search extends Component {
           </button>
         </div>
       </div>
-      // </form>
     );
   }
 }

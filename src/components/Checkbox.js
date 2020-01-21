@@ -5,11 +5,28 @@ class Checkbox extends Component {
     super(props);
 
     this.state = {
-      checked: false
+      checked: this.props.checked
     };
+
+    this.onFilter = this.onFilter.bind(this);
   }
 
-  onFilter() {}
+  onFilter(event) {
+    this.props.onFilter(
+      event.currentTarget.dataset.value,
+      event.currentTarget.checked
+    );
+    this.setState({ checked: !this.state.checked });
+    // this.props.onClick(this.state.checked);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.counter !== this.props.counter) {
+      this.setState({
+        checked: this.props.checked
+      });
+    }
+  }
 
   render() {
     var label = this.props.label;
@@ -20,7 +37,9 @@ class Checkbox extends Component {
           type="checkbox"
           data-value={label}
           onChange={this.onFilter}
-          defaultChecked={this.state.checked}
+          checked={this.state.checked}
+          // checked={this.props.checked}
+          // defaultChecked={this.state.checked}
         />
         {label}
       </p>
